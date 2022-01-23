@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "worldbordercolor",
+  "version": "${version}",
+  "name": "Worldbordercolor",
+  "description": "Change the color and opocity of the world border",
+  "authors": [
+    "Aurys"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/worldbordercolor/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "gay.aurum.worldbordercolor.client.WorldbordercolorClient"
+    ],
+    "main": [
+      "gay.aurum.worldbordercolor.Worldbordercolor"
+    ]
+  },
+
+          "mixins": [
+        "worldbordercolor.mixins.json"
+      ],
+    
+  "depends": {
+    "fabricloader": ">=0.12.12",
+              "fabric": "*",
+          "minecraft": ">=1.17.1"
+  }
+}

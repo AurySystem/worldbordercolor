@@ -1,0 +1,172 @@
+---- Minecraft Crash Report ----
+// I'm sorry, Dave.
+
+Time: 1/21/22, 10:54 PM
+Description: Initializing game
+
+java.lang.RuntimeException: Mixin transformation of net.minecraft.client.render.WorldRenderer failed
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:252)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:150)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:155)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)
+	at net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:593)
+	at net.minecraft.client.main.Main.main(Main.java:161)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:608)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:77)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An unexpected critical error was encountered
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:392)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:234)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:247)
+	... 13 more
+Caused by: org.spongepowered.asm.mixin.injection.throwables.InjectionError: Critical injection failure: Multi-argument modifier method injectcolor(Lorg/spongepowered/asm/mixin/injection/invoke/arg/Args;)V in worldbordercolor.mixins.json:WorldRenderMixin from mod worldbordercolor failed injection check, (0/1) succeeded. Scanned 1 target(s). No refMap loaded.
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.postInject(InjectionInfo.java:468)
+	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.applyInjections(MixinTargetContext.java:1381)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyInjections(MixinApplicatorStandard.java:1052)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:400)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:325)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:421)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:403)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)
+	... 16 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:252)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:150)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:155)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)
+	at net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:593)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.main.Main.main(Main.java:161)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:608)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:77)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.17.1
+	Minecraft Version ID: 1.17.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 16.0.2, Eclipse Foundation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Foundation
+	Memory: 1687632512 bytes (1609 MiB) / 2881486848 bytes (2748 MiB) up to 8552185856 bytes (8156 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz
+	Identifier: Intel64 Family 6 Model 60 Stepping 3
+	Microarchitecture: unknown
+	Frequency (GHz): 3.49
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: Intel(R) HD Graphics 4600
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x0412
+	Graphics card #0 versionInfo: DriverVersion=20.19.15.5166
+	Graphics card #1 name: NVIDIA GeForce GT 730
+	Graphics card #1 vendor: NVIDIA (0x10de)
+	Graphics card #1 VRAM (MB): 2048.00
+	Graphics card #1 deviceId: 0x1287
+	Graphics card #1 versionInfo: DriverVersion=30.0.14.7212
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 1.33
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 1.33
+	Memory slot #1 type: DDR3
+	Memory slot #2 capacity (MB): 8192.00
+	Memory slot #2 clockSpeed (GHz): 1.33
+	Memory slot #2 type: DDR3
+	Memory slot #3 capacity (MB): 8192.00
+	Memory slot #3 clockSpeed (GHz): 1.33
+	Memory slot #3 type: DDR3
+	Virtual memory max (MB): 37477.77
+	Virtual memory used (MB): 23052.57
+	Swap memory total (MB): 4864.00
+	Swap memory used (MB): 214.23
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		fabric: Fabric API 0.46.1+1.17
+		fabric-api-base: Fabric API Base 0.4.0+cf39a74318
+		fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.5.0+e821752d18
+		fabric-biome-api-v1: Fabric Biome API (v1) 3.2.2+cf39a74318
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.6+cf39a74318
+		fabric-command-api-v1: Fabric Command API (v1) 1.1.4+cf39a74318
+		fabric-commands-v0: Fabric Commands (v0) 0.2.3+cf39a74318
+		fabric-containers-v0: Fabric Containers (v0) 0.1.13+cf39a74318
+		fabric-content-registries-v0: Fabric Content Registries (v0) 0.4.1+3447790d18
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.1.6+cf39a74318
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 1.1.2+4a20890318
+		fabric-dimensions-v1: Fabric Dimensions API (v1) 2.0.15+b556f28c18
+		fabric-entity-events-v1: Fabric Entity Events (v1) 1.4.1+377137cc18
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.4.12+e99fbe1218
+		fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.4+cf39a74318
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.8+cf39a74318
+		fabric-gametest-api-v1: Fabric Game Test API (v1) 1.0.5+234bdc2e18
+		fabric-item-api-v1: Fabric Item API (v1) 1.3.0+6617390918
+		fabric-item-groups-v0: Fabric Item Groups (v0) 0.3.2+cf39a74318
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.6+2a2bb57318
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.4+cf39a74318
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 1.4.6+0392f3a618
+		fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.0.5+cf39a74318
+		fabric-mining-level-api-v1: Fabric Mining Level API (v1) 1.0.3+cf39a74318
+		fabric-mining-levels-v0: Fabric Mining Levels (v0) 0.1.7+cf39a74318
+		fabric-models-v0: Fabric Models (v0) 0.3.1+cf39a74318
+		fabric-networking-api-v1: Fabric Networking API (v1) 1.0.14+cf39a74318
+		fabric-networking-blockentity-v0: Fabric Networking Block Entity (v0) 0.2.12+cf39a74318
+		fabric-networking-v0: Fabric Networking (v0) 0.3.3+cf39a74318
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 1.11.1+f907116918
+		fabric-object-builders-v0: Fabric Object Builders (v0) 0.7.8+cf39a74318
+		fabric-particles-v1: Fabric Particles (v1) 0.2.5+cf39a74318
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 0.8.0+ea29b33318
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 0.4.6+ce16ae5918
+		fabric-renderer-indigo: Fabric Renderer - Indigo 0.4.10+ce16ae5918
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.6+cf39a74318
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.1.6+cf39a74318
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 0.2.1+cf39a74318
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.7+cf39a74318
+		fabric-rendering-v1: Fabric Rendering (v1) 1.10.1+377137cc18
+		fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 1.0.1+591a0f2118
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.4.10+f09604ce18
+		fabric-screen-api-v1: Fabric Screen API (v1) 1.0.5+cf39a74318
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.1.9+cf39a74318
+		fabric-structure-api-v1: Fabric Structure API (v1) 1.2.0+48a9ad8918
+		fabric-tag-extensions-v0: Fabric Tag Extensions (v0) 1.2.3+cf39a74318
+		fabric-textures-v0: Fabric Textures (v0) 1.0.7+cf39a74318
+		fabric-tool-attribute-api-v1: Fabric Tool Attribute API (v1) 1.3.3+3b96517518
+		fabric-transfer-api-v1: Fabric Transfer API (v1) 1.5.4+cf39a74318
+		fabricloader: Fabric Loader 0.12.12
+		java: OpenJDK 64-Bit Server VM 16
+		minecraft: Minecraft 1.17.1
+		worldbordercolor: Worldbordercolor 1.0-SNAPSHOT
+	Launched Version: Fabric
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce GT 730/PCIe/SSE2 GL version 3.2.0 NVIDIA 472.12, NVIDIA Corporation
+	Window size: <not initialized>
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Type: Client (map_client.txt)
+	CPU: 8x Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz
